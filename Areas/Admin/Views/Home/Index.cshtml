@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CoreDBApp.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Create" asp-controller="Home">Ürün Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>İsim</td>
+            <td>Açıklama</td>
+            <td>Fiyat</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Home" asp-route-Id="@item.Id">Düzenle | </a>
+                <a asp-action="Delete" asp-controller="Home" asp-route-Id="@item.Id"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="Search" asp-area="Admin" asp-controller="Home" method="post">
+    <input type="text" name="Name" value="" />
+    <button class="btn btn-danger">search</button>
+</form>
