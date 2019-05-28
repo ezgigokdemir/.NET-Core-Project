@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <partial name="_navbar">
+    </header>
+    <main>
+        <div class="container p-4">
+            @RenderBody()
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="Index">
+    <p>
+        <input type="text" name="Search">
+        <input class="btn-primary" type="submit" value="ARA" />
+    </p>
+    @*<p>
+            <div class="row">
+                <div class="col-lg-1">Id</div>
+                <div class="col-lg-2"><input type="text" name="SearchString"></div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-1">Name</div>
+                <div class="col-lg-2"><input type="text" name="SearchString"></div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-1">Description</div>
+                <div class="col-lg-2"><input type="text" name="SearchString"></div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-1">Price</div>
+                <div class="col-lg-2"><input type="text" name="SearchString"></div>
+                <div class="col-lg-3"><input class="btn-primary" type="submit" value="Filter" /></div>
+            </div>
+        </p>*@
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                İsim
+            </th>
+            <th>
+                Açıklama
+            </th>
+            <th>
+                Fiyat
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+</table>
